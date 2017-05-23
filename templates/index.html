@@ -1,0 +1,104 @@
+{% extends "blueprint.html" %} {% block title %}Home{% endblock %} {% block head %} {{ super() }} {% endblock %}
+{% block list %}
+<li class="active"><a href="/"><i class="fa fa-sliders" aria-hidden="true"></i> Moodslider</a></li>
+<li><a href="/upload"><i class="fa fa-upload" aria-hidden="true"></i> Upload</a></li>
+{% endblock %}
+{% block content %}
+
+<h2>Moodslider <small>Select your mood below</small></h2>
+<hr/>
+
+<form action="" method="post">
+    <div class="row">
+        <div class="col-md-2">
+            <h4>Agitated</h4>
+        </div>
+        <div class="col-md-8">
+            <div class="range range-primary">
+                <input type="range" name="range1" min="0" max="2" value="{{ request.form.range1 }}" onchange="range.value=value">
+                <output id="range"></output>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <h4>Calm</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-2">
+            <h4>Happy</h4>
+        </div>
+        <div class="col-md-8">
+            <div class="range range-success">
+                <input type="range" name="range2" min="0" max="2" value="{{ request.form.range2 }}" onchange="rangeSuccess.value=value">
+                <output id="rangeSuccess"></output>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <h4>Sad</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-2">
+            <h4>Tired</h4>
+        </div>
+        <div class="col-md-8">
+            <div class="range range-warning">
+                <input type="range" name="range3" min="0" max="2" value="{{ request.form.range3 }}" onchange="rangeWarning.value=value">
+                <output id="rangeWarning"></output>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <h4>Wide Awake</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-2">
+            <h4>Scared</h4>
+        </div>
+        <div class="col-md-8">
+            <div class="range range-danger">
+                <input type="range" name="range4" min="0" max="2" value="{{ request.form.range4 }}" onchange="rangeDanger.value=value">
+                <output id="rangeDanger"></output>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <h4>Fearless</h4>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <center>
+        <div style="display: inline-block">
+            <h4 style="color: #0088af">Submit for Movies</h4>
+        </div>
+            <div style="display: inline-block">
+            <button type="submit" class="btn btn-default" style="color: #0088af">
+            <i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i></button>
+        </div>
+    </center>
+</form>
+<hr>
+<center>
+<div class="row">
+    <div class="col-md-1"></div>
+    {% for image in movies[:5] %}
+    <div class="col-md-2">
+        <img src="{{ image }}" alt="{{ image }}" width="150" height="200">
+    </div>
+    {% endfor %}
+    <div class="col-md-1"></div>
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
+    {% for name in names[:5] %}
+    <div class="col-md-2">
+        <h4>{{ name }}</h4>
+    </div>
+    {% endfor %}
+    <div class="col-md-1"></div>
+</div>
+</center>
+{% endblock %}

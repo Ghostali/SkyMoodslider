@@ -1,0 +1,35 @@
+{% extends "blueprint.html" %} {% block title %}Upload{% endblock %} {% block head %} {{ super() }} {% endblock %}
+{% block list %}
+<li><a href="/"><i class="fa fa-sliders" aria-hidden="true"></i> Moodslider</a></li>
+<li class="active"><a href="/upload"><i class="fa fa-upload" aria-hidden="true"></i> Upload</a></li>
+{% endblock %}
+
+{% block content %}
+
+<h2>Upload content<small></small></h2>
+<hr/>
+
+
+<center>
+<div class="row">
+        <div class="col-md-12">
+            <form action="upload" method="post" enctype="multipart/form-data">
+          <span class="btn btn-default">
+        <input type="file" name="file">
+          </span>
+
+        <input type="submit" class="btn btn-default" value="Upload">
+
+      </form>
+        </div>
+</div>
+</center>
+<hr>
+
+<center>
+<h4>Example layout of JSON file:</h4>
+<img src="/static/example.jpg" alt="example" width="auto;" height="auto;">
+</center>
+
+<br><br>
+{% endblock %}
