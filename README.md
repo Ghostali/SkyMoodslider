@@ -1,2 +1,2 @@
 # SkyMoodslider
-Project for Sky
+Project for Sky tech academy
